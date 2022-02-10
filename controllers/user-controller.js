@@ -25,8 +25,11 @@ const userController = {
   },
   createUser({ body }, res) {
     User.create(body)
-      .then(dbUserData => res.json(dbUserData))
-      .catch(err => res.status(400).json(err));
+      .then((dbUserData) => res.json(dbUserData))
+      .catch((err) => {
+        console.log("CREATE USER ERR", err)
+         res.status(500).json(err)});
+      
   },
   updateUser({ params, body }, res) {
     User.findOneAndUpdate({ _id: params.id }, body, { new: true })

@@ -1,4 +1,4 @@
-const db = require('./config/controllers')
+const db = require('./config/connection')
 const express = require('express');
 
 const app = express();

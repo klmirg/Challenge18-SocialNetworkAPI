@@ -31,6 +31,7 @@ Here is a tutorial video on how to use it:
  ## Languages
  * JavaScript
  * Node.js
+ * NoSQL
  * Express
  * Mongoose
  * MongoDB

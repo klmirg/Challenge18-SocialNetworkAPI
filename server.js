@@ -9,9 +9,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(require('./routes'));
 
-
-
-// mongoose.set('debug', true);
 db.once('open', () => {
 app.listen(PORT, () => console.log(`Connected on localhost: ${PORT}`));
 })

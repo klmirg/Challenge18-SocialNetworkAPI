@@ -9,6 +9,7 @@ const userController = {
         res.status(400).json(err);
       });
   },
+
   getUserById({ params }, res) {
     User.findOne({ _id: params.id })
       .then(dbUserData => {
@@ -23,14 +24,15 @@ const userController = {
         res.status(400).json(err);
       });
   },
+
   createUser({ body }, res) {
     User.create(body)
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => {
         console.log("CREATE USER ERR", err)
-         res.status(500).json(err)});
-      
+         res.status(500).json(err)}); 
   },
+
   updateUser({ params, body }, res) {
     User.findOneAndUpdate({ _id: params.id }, body, { new: true })
       .then(dbUserData => {
@@ -42,6 +44,7 @@ const userController = {
       })
       .catch(err => res.status(400).json(err));
   },
+
   deleteUser({ params }, res) {
     User.findOneAndDelete({ _id: params.id })
       .then(dbUserData => {
@@ -53,6 +56,7 @@ const userController = {
       })
       .catch(err => res.status(400).json(err));
   },
+
   addFriend({ params }, res) {
     User.findOneAndUpdate(
       { _id: params.userId },
@@ -68,6 +72,7 @@ const userController = {
       })
       .catch(err => res.json(err));
   },
+
   deleteFriend({ params }, res) {
     User.findOneAndUpdate(
       { _id: params.userId },
@@ -78,6 +83,5 @@ const userController = {
       .catch(err => res.json(err));
   }
 };
-
 
 module.exports = userController;
